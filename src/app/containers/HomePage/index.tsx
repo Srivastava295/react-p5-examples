@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import RandomWalkerPage from '../../features/random-walker/containers/RandomWalkerPage';
+// import RandomWalkerPage from '../../features/random-walker/containers/RandomWalkerPage';
+import BouncingBallPage from '../../features/bouncing-ball/containers/BouncingBallPage';
 
 export function HomePage() {
   return (
@@ -9,7 +10,7 @@ export function HomePage() {
         <title>React p5</title>
         <meta name="description" content="React p5" />
       </Helmet>
-      <RandomWalkerPage />
+      <BouncingBallPage />
     </>
   );
 }
