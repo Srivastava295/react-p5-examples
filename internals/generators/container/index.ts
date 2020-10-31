@@ -23,7 +23,7 @@ const containersPath = path.join(__dirname, '../../../src/app/containers');
 const rootStatePath = path.join(__dirname, '../../../src/types/RootState.ts');
 
 export const containerGenerator: PlopGenerator = {
-  description: 'Add a container component',
+  description: 'Add a containers component',
   prompts: [
     {
       type: 'input',
@@ -33,7 +33,7 @@ export const containerGenerator: PlopGenerator = {
       validate: value => {
         if (/.+/.test(value)) {
           return containerExists(value)
-            ? 'A container with this name already exists'
+            ? 'A containers with this name already exists'
             : true;
         }
 
@@ -57,7 +57,7 @@ export const containerGenerator: PlopGenerator = {
       name: ContainerProptNames.wantSlice,
       default: true,
       message:
-        'Do you want a redux slice(actions/selectors/reducer) for this container?',
+        'Do you want a redux slice(actions/selectors/reducer) for this containers?',
     },
     {
       type: 'confirm',
@@ -98,7 +98,7 @@ export const containerGenerator: PlopGenerator = {
       {
         type: 'add',
         path: `${containerPath}/index.tsx`,
-        templateFile: './container/index.tsx.hbs',
+        templateFile: './containers/index.tsx.hbs',
         abortOnFail: true,
       },
     ];
@@ -107,33 +107,33 @@ export const containerGenerator: PlopGenerator = {
       actions.push({
         type: 'add',
         path: `${containerPath}/slice.ts`,
-        templateFile: './container/slice.ts.hbs',
+        templateFile: './containers/slice.ts.hbs',
         abortOnFail: true,
       });
       actions.push({
         type: 'add',
         path: `${containerPath}/selectors.ts`,
-        templateFile: './container/selectors.ts.hbs',
+        templateFile: './containers/selectors.ts.hbs',
         abortOnFail: true,
       });
       actions.push({
         type: 'add',
         path: `${containerPath}/types.ts`,
-        templateFile: './container/types.ts.hbs',
+        templateFile: './containers/types.ts.hbs',
         abortOnFail: true,
       });
       actions.push({
         type: 'modify',
         path: `${rootStatePath}`,
         pattern: new RegExp(/.*\/\/.*\[IMPORT NEW CONTAINERSTATE ABOVE\].+\n/),
-        templateFile: './container/importContainerState.hbs',
+        templateFile: './containers/importContainerState.hbs',
         abortOnFail: true,
       });
       actions.push({
         type: 'modify',
         path: `${rootStatePath}`,
         pattern: new RegExp(/.*\/\/.*\[INSERT NEW REDUCER KEY ABOVE\].+\n/),
-        templateFile: './container/appendRootState.hbs',
+        templateFile: './containers/appendRootState.hbs',
         abortOnFail: true,
       });
     }
@@ -141,7 +141,7 @@ export const containerGenerator: PlopGenerator = {
       actions.push({
         type: 'add',
         path: `${containerPath}/saga.ts`,
-        templateFile: './container/saga.ts.hbs',
+        templateFile: './containers/saga.ts.hbs',
         abortOnFail: true,
       });
     }
@@ -149,7 +149,7 @@ export const containerGenerator: PlopGenerator = {
       actions.push({
         type: 'add',
         path: `${containerPath}/Loadable.ts`,
-        templateFile: './container/loadable.ts.hbs',
+        templateFile: './containers/loadable.ts.hbs',
         abortOnFail: true,
       });
     }
@@ -158,7 +158,7 @@ export const containerGenerator: PlopGenerator = {
       actions.push({
         type: 'add',
         path: `${containerPath}/__tests__/index.test.tsx`,
-        templateFile: './container/index.test.tsx.hbs',
+        templateFile: './containers/index.test.tsx.hbs',
         abortOnFail: true,
       });
     }

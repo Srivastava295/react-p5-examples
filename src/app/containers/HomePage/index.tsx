@@ -1,25 +1,15 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { NavBar } from '../NavBar';
-import { Masthead } from './Masthead';
-import { Features } from './Features';
-import { PageWrapper } from 'app/components/PageWrapper';
+import RandomWalkerPage from '../../features/random-walker/containers/RandomWalkerPage';
 
 export function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Home Page</title>
-        <meta
-          name="description"
-          content="A React Boilerplate application homepage"
-        />
+        <title>React p5</title>
+        <meta name="description" content="React p5" />
       </Helmet>
-      <NavBar />
-      <PageWrapper>
-        <Masthead />
-        <Features />
-      </PageWrapper>
+      <RandomWalkerPage />
     </>
   );
 }
