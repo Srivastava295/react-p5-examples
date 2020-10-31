@@ -2,8 +2,8 @@ import { randomIntFromInterval } from '../../../utils/js-utils';
 import p5Types from 'p5';
 
 interface IWalker {
-  step();
-  display(p5: p5Types);
+  step(): void;
+  display(p5: p5Types): void;
 }
 
 export class Walker implements IWalker {
@@ -15,7 +15,7 @@ export class Walker implements IWalker {
     this.y = y;
   }
 
-  public step() {
+  public step(): void {
     const choice: number = randomIntFromInterval(1, 4);
 
     if (choice === 1) {
@@ -29,7 +29,7 @@ export class Walker implements IWalker {
     }
   }
 
-  public display(p5: p5Types) {
+  public display(p5: p5Types): void {
     // to display as a dot
     p5.stroke(0);
     p5.point(this.x, this.y);
